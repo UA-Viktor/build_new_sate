@@ -1,0 +1,32 @@
+[
+  {
+    "id": "c1",
+    "title": "4ROOM — меблі, Київ",
+    "niche": "Retail",
+    "goals": "Збільшити онлайн-продажі",
+    "spend": "€2,500",
+    "roas": 6.2,
+    "cpa": "₴120",
+    "results": "Зростання виручки +48% за 30 днів"
+  },
+  {
+    "id": "c2",
+    "title": "Art Sushi — Львів",
+    "niche": "Food",
+    "goals": "Замовлення з Instagram",
+    "spend": "€1,200",
+    "roas": 4.8,
+    "cpa": "₴85",
+    "results": "Стабільні 40–60 замовл./день"
+  },
+  {
+    "id": "c3",
+    "title": "Wellness Clinic — Київ",
+    "niche": "Services",
+    "goals": "Ліди на консультації",
+    "spend": "€900",
+    "roas": 3.9,
+    "cpa": "₴110",
+    "results": "Заповнені слоти на 3 тижні"
+  }
+]
