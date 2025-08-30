@@ -1,53 +1,68 @@
+import Button from "../components/Button";
+import Section from "../components/Section";
+
 export default function Home() {
   return (
-    <section className="relative overflow-hidden">
-      {/* фон */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-white" />
+    <Section>
+      {/* фонові плями */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-slate-50/80 to-white" />
+      <div className="pointer-events-none absolute -right-24 top-10 -z-10 h-64 w-64 rounded-full blur-3xl"
+           style={{ background: "radial-gradient(closest-side, rgba(138,92,246,0.35), transparent)" }} />
+      <div className="pointer-events-none absolute -left-24 top-48 -z-10 h-64 w-64 rounded-full blur-3xl"
+           style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.25), transparent)" }} />
 
-      <div className="max-w-6xl mx-auto px-4 pt-20 pb-16">
-        <p className="text-sm uppercase tracking-widest text-slate-500">
-          performance marketing • meta ads • seo
-        </p>
+      <div className="container grid items-center gap-10 py-16 lg:grid-cols-2">
+        <div>
+          <p className="text-xs uppercase tracking-widest text-slate-500">
+            performance marketing • meta ads • seo
+          </p>
+          <h1 className="mt-4 text-4xl lg:text-5xl font-heading font-semibold leading-tight">
+            Запускаю рекламу, що <span className="text-gradient">продає</span>. <br className="hidden sm:block" />
+            Facebook / Instagram + SEO.
+          </h1>
+          <p className="mt-4 text-lg text-slate-600 max-w-xl">
+            Знижую CAC, підвищую ROAS і будую прозору аналітику. Креативи, гіпотези, A/B та масштабування.
+          </p>
 
-        <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight">
-          Запускаю рекламу, що <span className="underline decoration-2">продає</span>.<br />
-          Стратегії для Facebook/Instagram + SEO.
-        </h1>
-
-        <p className="mt-4 text-lg text-slate-600 max-w-2xl">
-          Допомагаю брендам отримувати клієнтів з реклами та пошуку:
-          знижую CAC, підвищую ROAS, вибудовую воронки та аналітику.
-        </p>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href="/contact" className="px-5 py-3 rounded bg-black text-white">
-            Замовити консультацію
-          </a>
-          <a href="/cases" className="px-5 py-3 rounded border">
-            Подивитись кейси
-          </a>
-        </div>
-
-        {/* social proof */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-          <div>
-            <div className="text-2xl font-bold">30+</div>
-            <div className="text-slate-500 text-sm">проєктів</div>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Button href="/contact">Замовити консультацію</Button>
+            <Button href="/cases" variant="secondary">Подивитись кейси</Button>
           </div>
-          <div>
-            <div className="text-2xl font-bold">до 7×</div>
-            <div className="text-slate-500 text-sm">ROAS</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold">–35%</div>
-            <div className="text-slate-500 text-sm">CAC</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold">5 років</div>
-            <div className="text-slate-500 text-sm">досвіду</div>
+
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <Metric k="30+" v="проєктів" />
+            <Metric k="до 7×" v="ROAS" />
+            <Metric k="–35%" v="CAC" />
+            <Metric k="5 років" v="досвіду" />
           </div>
         </div>
+
+        <Mockup />
       </div>
-    </section>
+    </Section>
+  );
+}
+
+function Metric({ k, v }: { k: string; v: string }) {
+  return (
+    <div className="rounded-xl border p-4 shadow-soft">
+      <div className="text-2xl font-semibold">{k}</div>
+      <div className="text-slate-500 text-sm">{v}</div>
+    </div>
+  );
+}
+
+/* простий макет замість картинки (потім підмінемо реальною) */
+function Mockup() {
+  return (
+    <div className="relative rounded-2xl border bg-white shadow-soft p-5">
+      <div className="h-40 rounded-xl bg-gradient-to-br from-brand-primary/15 to-brand-secondary/15" />
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        <div className="h-24 rounded-lg bg-slate-100" />
+        <div className="h-24 rounded-lg bg-slate-100" />
+        <div className="h-24 rounded-lg bg-slate-100" />
+      </div>
+      <div className="mt-4 h-10 rounded-lg bg-slate-100" />
+    </div>
   );
 }
