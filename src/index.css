@@ -1,18 +1,75 @@
 ﻿@import "tailwindcss";
 
+/* ===== Base ===== */
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
   html,
   body,
   #root {
     height: 100%;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Глобальна типографіка */
   body {
-    @apply antialiased text-slate-800 bg-white;
+    @apply bg-white text-slate-800 antialiased overflow-x-hidden;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Заголовки на Clash Display */
+  h1,
+  h2,
+  h3 {
+    font-family: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Медія елементи не виходять за контейнер */
+  img,
+  svg,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 }
 
+/* ===== Utilities ===== */
 @layer utilities {
+  /* Скляний ефект (для navbar / карток) */
   .glass {
     @apply bg-white/70 backdrop-blur border;
+    box-shadow: 0 6px 20px rgba(2, 8, 23, 0.06);
+  }
+
+  /* М’яка тінь для карток/метрик */
+  .shadow-soft {
+    box-shadow: 0 8px 30px rgba(2, 8, 23, 0.08);
+  }
+
+  /* Утиліта шрифту заголовків (для логотипа тощо) */
+  .heading-font {
+    font-family: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Ховає скролбар, лишає прокрутку (для каруселей) */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

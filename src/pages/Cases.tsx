@@ -2,14 +2,11 @@ import { useMemo, useState } from "react";
 import data from "../data/cases.json";
 import CaseCard from "../components/CaseCard";
 import CaseFilters from "../components/CaseFilters";
+import FadeIn from "../components/FadeIn";
 
 export default function Cases() {
   const [filter, setFilter] = useState<string>("All");
-
-  const list = useMemo(() => {
-    if (filter === "All") return data;
-    return data.filter(c => c.niche === filter);
-  }, [filter]);
+  const list = useMemo(() => (filter === "All" ? data : data.filter(c => c.niche === filter)), [filter]);
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-12">
@@ -23,7 +20,11 @@ export default function Cases() {
       </p>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map(c => <CaseCard key={c.id} {...c} />)}
+        {list.map((c, i) => (
+          <FadeIn key={c.id} delay={i * 0.06}>
+            <CaseCard {...c} />
+          </FadeIn>
+        ))}
       </div>
     </section>
   );
